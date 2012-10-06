@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>schemaspy-example</groupId>
+    <artifactId>schemaspy-example</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>schemaspy-example</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Wakaleo Repository</id>
+            <url>http://www.wakaleo.com/maven/repos/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>com.wakaleo.schemaspy</groupId>
+                            <artifactId>maven-schemaspy-plugin</artifactId>
+                            <version>1.0.4</version>
+                            <configuration>
+                                <databaseType>pgsql</databaseType>
+                                <database>salesquote</database>
+                                <host>localhost</host>
+                                <!--<port>5432</port>-->
+                                <schema>public</schema>
+                                <!--<user>danny</user>-->
+                                <!--<password>test1234</password>-->
+                                <!--<targetDirectory>doc/schemaspy</targetDirectory>-->
+                                <jdbcUrl>jdbc:postgresql://localhost:5432/salesquote</jdbcUrl>
+                                <user>danny</user>
+                                <password>test1234</password>
+                            </configuration>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+    </dependencies>
+
+</project>
